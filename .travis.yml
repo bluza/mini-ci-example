@@ -10,3 +10,4 @@ script:
   - go test -v ./...
   # Build the code 
   - env GOOS=linux GOARCH=amd64 go build -o demo
+  
