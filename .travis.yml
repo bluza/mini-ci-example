@@ -23,7 +23,7 @@ script:
   - docker build -f Dockerfile -t bluza/demo:latest ./
   
   - GIT_SHA="$(git rev-parse --short HEAD)"
-  - docker tag YOUR-DOCKERHUB-ACCOUNT/demo:latest bluza/demo:$GIT_SHA
+  - docker tag bluza/demo:latest bluza/demo:$GIT_SHA
   
   - docker push bluza/demo:latest
   - docker push bluza/demo:$GIT_SHA
