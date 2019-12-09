@@ -20,10 +20,10 @@ script:
 
   - echo "$REGISTRY_PASSWORD" | docker login --username $REGISTRY_USER --password-stdin
   
-  - docker build -f Dockerfile -t bluza/demo:latest ./
+  - docker build -f Dockerfile -t $REGISTRY_USER/demo:latest ./
   
   - GIT_SHA="$(git rev-parse --short HEAD)"
-  - docker tag bluza/demo:latest bluza/demo:$GIT_SHA
+  - docker tag $REGISTRY_USER/demo:latest $REGISTRY_USER/demo:$GIT_SHA
   
-  - docker push bluza/demo:latest
-  - docker push bluza/demo:$GIT_SHA
+  - docker push $REGISTRY_USER/demo:latest
+  - docker push $REGISTRY_USER/demo:$GIT_SHA
